@@ -1,9 +1,8 @@
 
-public abstract class Osoba {
+public class OsobaPrywatna extends Wydawca {
 	
 	private String imie;
 	private String nazwisko;
-	private int pesel;
 	
 	public String getImie() {
 		return imie;
@@ -17,11 +16,6 @@ public abstract class Osoba {
 	public void setNazwisko(String nazwisko) {
 		this.nazwisko = nazwisko;
 	}
-	public int getPesel() {
-		return pesel;
-	}
-	public void setPesel(int pesel) {
-		this.pesel = pesel;
-	}
 	
+
 }
