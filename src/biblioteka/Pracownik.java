@@ -1,3 +1,4 @@
+package biblioteka;
 
 public class Pracownik {
 	private String adresZamieszkania;

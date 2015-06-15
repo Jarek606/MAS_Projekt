@@ -1,3 +1,4 @@
+package biblioteka;
 
 public class Klient {
 	private int nrKlienta;

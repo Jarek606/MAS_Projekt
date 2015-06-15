@@ -1,3 +1,4 @@
+package biblioteka;
 
 public class Wydawnictwo extends Wydawca {
 	private String nazwa;
