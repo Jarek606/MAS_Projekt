@@ -13,7 +13,6 @@ import java.util.Hashtable;
 import java.util.TreeMap;
 import java.util.Vector;
 
-import mas.mp2.Czesc;
 
 /**
  * Klasa ulatwiajaca zarzadzanie asocjacjami (powiazaniami). Poniewaz dziedziczy z ObjectPlus ulatiwa takze zarzadzanie ekstensja. 
