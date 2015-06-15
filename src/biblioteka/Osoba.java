@@ -1,6 +1,8 @@
 package biblioteka;
 
-public abstract class Osoba {
+import objectplus.ObjectPlusPlus;
+
+public abstract class Osoba extends ObjectPlusPlus{
 	
 	private String imie;
 	private String nazwisko;

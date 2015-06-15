@@ -1,6 +1,8 @@
 package biblioteka;
 
-public class Klient {
+import objectplus.ObjectPlusPlus;
+
+public class Klient extends ObjectPlusPlus{
 	private int nrKlienta;
 
 	public int getNrKlienta() {

@@ -1,6 +1,8 @@
 package biblioteka;
 
-public class Pracownik {
+import objectplus.ObjectPlusPlus;
+
+public class Pracownik extends ObjectPlusPlus{
 	private String adresZamieszkania;
 	private int nrTel;
 	private double pensja;

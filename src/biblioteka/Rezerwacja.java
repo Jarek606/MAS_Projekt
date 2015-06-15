@@ -1,8 +1,11 @@
 package biblioteka;
 import java.util.Date;
 
+import enums.statusRezerwacji;
+import objectplus.ObjectPlusPlus;
 
-public class Rezerwacja {
+
+public class Rezerwacja extends ObjectPlusPlus{
 
 	private Date dataRezerwacji;
 	private statusRezerwacji status;

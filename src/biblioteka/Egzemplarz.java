@@ -1,6 +1,9 @@
 package biblioteka;
 
-public class Egzemplarz {
+import enums.statusEgzemplarza;
+import objectplus.ObjectPlusPlus;
+
+public class Egzemplarz extends ObjectPlusPlus{
 	
 	private int nrEgzemplarza;
 	private statusEgzemplarza status;

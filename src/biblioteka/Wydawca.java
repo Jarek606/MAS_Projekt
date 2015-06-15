@@ -1,5 +1,7 @@
 package biblioteka;
 
-public abstract class Wydawca {
+import objectplus.ObjectPlusPlus;
+
+public abstract class Wydawca extends ObjectPlusPlus{
 
 }

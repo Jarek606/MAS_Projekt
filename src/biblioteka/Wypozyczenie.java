@@ -1,8 +1,10 @@
 package biblioteka;
 import java.util.Date;
 
+import objectplus.ObjectPlusPlus;
 
-public class Wypozyczenie {
+
+public class Wypozyczenie extends ObjectPlusPlus{
 	
 	private Date dataWypozyczenia;
 	private Date planowanaDataZwrotu;

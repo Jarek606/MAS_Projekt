@@ -1,6 +1,8 @@
 package biblioteka;
 
-public class Ksiazka {
+import objectplus.ObjectPlusPlus;
+
+public class Ksiazka extends ObjectPlusPlus {
 	
 	private String tytul;
 	private String autor;
