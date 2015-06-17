@@ -15,6 +15,9 @@ import java.awt.FlowLayout;
 import javax.swing.JButton;
 import javax.swing.BoxLayout;
 
+import biblioteka.Ksiazka;
+import biblioteka.OsobaPrywatna;
+import biblioteka.Wydawnictwo;
 import objectplus.ObjectPlus;
 import net.miginfocom.swing.MigLayout;
 
@@ -36,7 +39,7 @@ import java.io.ObjectOutputStream;
 public class main extends JFrame {
 
 	private JPanel contentPane;
-	final static String extension = "extension.bin";
+	final static String extension = "extension_gui.bin";
 
 	/**
 	 * Launch the application.
@@ -45,12 +48,12 @@ public class main extends JFrame {
 		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				 try {
+				try {
 					// Odczytaj ekstensje ze strumienia
 					ObjectInputStream in = new ObjectInputStream(new FileInputStream(extension));
 					ObjectPlus.odczytajEkstensje(in);
 					in.close();	
-				 } catch (FileNotFoundException e) {
+				} catch (FileNotFoundException e) {
 					e.printStackTrace();
 				} catch (IOException e) {
 					e.printStackTrace();
@@ -58,7 +61,8 @@ public class main extends JFrame {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-			 
+				/*OsobaPrywatna OsobaPrywatna = new OsobaPrywatna("Jan", "Kowalski");
+				OsobaPrywatna = new OsobaPrywatna("Tomasz", "Nowak");*/
 				try {
 					main frame = new main();
 					frame.setVisible(true);

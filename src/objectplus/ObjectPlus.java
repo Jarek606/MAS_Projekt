@@ -80,4 +80,17 @@ public class ObjectPlus implements Serializable {
 		}
 	}
 	
+	public static Vector obiektyEkstensji(Class klasa) throws Exception {
+		Vector ekstensja = null;
+		
+		if(ekstensje.containsKey(klasa)) {
+			// Ekstensja tej klasy istnieje w kolekcji ekstensji
+			ekstensja = (Vector) ekstensje.get(klasa);
+			return ekstensja;
+		}
+		else {
+			throw new Exception("Unknown class " + klasa);
+		}
+	}
+	
 }

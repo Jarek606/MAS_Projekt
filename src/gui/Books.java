@@ -9,12 +9,17 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
 import net.miginfocom.swing.MigLayout;
+
 import javax.swing.JTable;
 import javax.swing.JButton;
 import javax.swing.JSeparator;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JScrollPane;
+
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 /**
  * @author Jaroslaw Dawidowicz
@@ -47,7 +52,6 @@ public class Books extends JFrame {
 	public Books() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setTitle("Ksi\u0105\u017Cki");
-		setAlwaysOnTop(true);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -78,6 +82,12 @@ public class Books extends JFrame {
 		contentPane.add(separator, "cell 0 1,growx");
 		
 		JButton btnAdd = new JButton("Dodaj");
+		btnAdd.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				AddBook dodajKsiazki = new AddBook();
+				dodajKsiazki.setVisible(true);
+			}
+		});
 		contentPane.add(btnAdd, "cell 0 2,alignx center,aligny center");
 	}
 

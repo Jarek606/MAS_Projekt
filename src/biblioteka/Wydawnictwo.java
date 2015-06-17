@@ -4,6 +4,11 @@ public class Wydawnictwo extends Wydawca {
 	private String nazwa;
 	private String adres;
 	
+	public Wydawnictwo(String nazwa, String adres){
+		this.nazwa = nazwa;
+		this.adres = adres;
+	}
+	
 	public String getNazwa() {
 		return nazwa;
 	}
@@ -17,5 +22,9 @@ public class Wydawnictwo extends Wydawca {
 		this.adres = adres;
 	}
 	
-
+	
+	public String toString(){
+		return "Wydawnictwo: " + getNazwa();
+	}
+	
 }

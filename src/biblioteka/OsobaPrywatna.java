@@ -5,6 +5,11 @@ public class OsobaPrywatna extends Wydawca {
 	private String imie;
 	private String nazwisko;
 	
+	public OsobaPrywatna(String imie, String nazwisko){
+		this.imie = imie;
+		this.nazwisko = nazwisko;
+	}
+	
 	public String getImie() {
 		return imie;
 	}
@@ -18,5 +23,8 @@ public class OsobaPrywatna extends Wydawca {
 		this.nazwisko = nazwisko;
 	}
 	
+	public String toString(){
+		return "Osoba prywatna: " + getNazwisko() + " " + getImie();
+	}
 
 }

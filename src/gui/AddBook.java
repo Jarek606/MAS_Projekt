@@ -6,20 +6,30 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
 import net.miginfocom.swing.MigLayout;
+
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+
 import java.awt.Font;
+
 import javax.swing.JComboBox;
 import javax.swing.JSeparator;
 import javax.swing.JButton;
+
 import java.awt.FlowLayout;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
 import javax.swing.DefaultComboBoxModel;
+
+import objectplus.ObjectPlus;
+import biblioteka.Wydawnictwo;
 
 public class AddBook extends JFrame {
 
+	private static final Class Ksiazka = null;
 	private JPanel contentPane;
 	private JTextField txtTitle;
 	private JTextField txtAuthor;
@@ -53,7 +63,7 @@ public class AddBook extends JFrame {
 	 */
 	public AddBook() {
 		setTitle("Dodaj ksi\u0105\u017Ck\u0119");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 222);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -89,7 +99,17 @@ public class AddBook extends JFrame {
 		contentPane.add(lblWydawnictwo, "cell 0 4,alignx left");
 		
 		cbPublisher = new JComboBox();
-		cbPublisher.addItem("s");
+		try {
+			for(Object o: ObjectPlus.obiektyEkstensji(biblioteka.Wydawnictwo.class)){
+				cbPublisher.addItem(o);; 
+			}
+			for(Object o: ObjectPlus.obiektyEkstensji(biblioteka.OsobaPrywatna.class)){
+				cbPublisher.addItem(o);; 
+			}
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		contentPane.add(cbPublisher, "cell 1 4,growx");
 		
 		separator = new JSeparator();

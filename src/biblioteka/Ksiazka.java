@@ -9,6 +9,12 @@ public class Ksiazka extends ObjectPlusPlus {
 	private int ISBN;
 	private static double oplataZaPrzetrzymanie = 0.5;
 	
+	public Ksiazka(String tytul, String autor, int ISBN){
+		this.tytul = tytul;
+		this.autor = autor;
+		this.ISBN = ISBN;
+	}
+	
 	public String getTytul() {
 		return tytul;
 	}
@@ -34,5 +40,8 @@ public class Ksiazka extends ObjectPlusPlus {
 		Ksiazka.oplataZaPrzetrzymanie = oplataZaPrzetrzymanie;
 	}
 	
+	public String toString() {
+		return getTytul();
+	}
 	
 }
