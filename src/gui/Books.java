@@ -45,7 +45,9 @@ public class Books extends JFrame {
 	 * Create the frame.
 	 */
 	public Books() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setTitle("Ksi\u0105\u017Cki");
+		setAlwaysOnTop(true);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
