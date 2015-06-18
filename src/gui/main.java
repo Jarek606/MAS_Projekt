@@ -15,7 +15,9 @@ import java.awt.FlowLayout;
 import javax.swing.JButton;
 import javax.swing.BoxLayout;
 
+import biblioteka.Klient;
 import biblioteka.Ksiazka;
+import biblioteka.Osoba;
 import biblioteka.OsobaPrywatna;
 import biblioteka.Wydawnictwo;
 import objectplus.ObjectPlus;
@@ -61,8 +63,13 @@ public class main extends JFrame {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				/*OsobaPrywatna OsobaPrywatna = new OsobaPrywatna("Jan", "Kowalski");
-				OsobaPrywatna = new OsobaPrywatna("Tomasz", "Nowak");*/
+				
+				/*Wydawnictwo wyd = new Wydawnictwo("WQR", "ul. Koralowa 10, 25-500 Warszawa");
+				wyd = new Wydawnictwo("IBN", "Aleje Jerozolimiskie 123, 77-544 Warszawa");
+				Osoba k = new Osoba("Jan", "Kowalski", 580731254, 123);
+				Ksiazka ks = new Ksiazka("Smoki w przestworzach", "Jan Nowak", 123);
+				ks.dodajPowiazanie("ksiazka", "wydawnictwo", wyd);*/
+				
 				try {
 					main frame = new main();
 					frame.setVisible(true);
@@ -104,6 +111,7 @@ public class main extends JFrame {
 		btnClient.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("click klient");
+				
 			}
 		});
 		contentPane.add(btnClient, "cell 1 0,growx,aligny center");
@@ -112,6 +120,8 @@ public class main extends JFrame {
 		btnBorrows.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				System.out.println("click wypo¿yczenia");
+				AddBorrow ab = new AddBorrow();
+				ab.setVisible(true);
 			}
 		});
 		contentPane.add(btnBorrows, "cell 2 0,growx,aligny center");

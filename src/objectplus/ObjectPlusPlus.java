@@ -191,4 +191,20 @@ public class ObjectPlusPlus extends ObjectPlus implements Serializable {
 		
 		return powiazaniaObiektu.get(kwalifikator);
 	}
+	
+	public ObjectPlusPlus dajPowiazanyObiekt(String nazwaRoli) throws Exception {
+		HashMap<Object, ObjectPlusPlus> powiazaniaObiektu;
+
+		if(!powiazania.containsKey(nazwaRoli)) {
+			// Brak powiazan dla tej roli
+			throw new Exception("Brak powiazan dla roli: " + nazwaRoli);
+		}
+		
+		powiazaniaObiektu = powiazania.get(nazwaRoli);
+		HashMap.Entry<Object, ObjectPlusPlus> entry = powiazaniaObiektu.entrySet().iterator().next();
+		
+		return (ObjectPlusPlus) entry.getKey();
+	}
 }
+
+

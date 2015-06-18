@@ -6,6 +6,8 @@ package gui;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
+import javafx.scene.control.TableRow;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -17,6 +19,9 @@ import javax.swing.JButton;
 import javax.swing.JSeparator;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JScrollPane;
+
+import objectplus.ObjectPlus;
+import objectplus.ObjectPlusPlus;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -48,8 +53,9 @@ public class Books extends JFrame {
 
 	/**
 	 * Create the frame.
+	 * @throws Exception 
 	 */
-	public Books() {
+	public Books() throws Exception {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setTitle("Ksi\u0105\u017Cki");
 		setBounds(100, 100, 450, 300);
@@ -77,6 +83,12 @@ public class Books extends JFrame {
 			}
 		});
 		scrollPane.setViewportView(table);
+		DefaultTableModel model = (DefaultTableModel) table.getModel();
+
+		for(Object o: ObjectPlus.obiektyEkstensji(biblioteka.Ksiazka.class)){
+			model.addRow(new Object[]{((biblioteka.Ksiazka) o).getAutor(), ((biblioteka.Ksiazka) o), (biblioteka.Wydawnictwo)(((biblioteka.Ksiazka) o).dajPowiazanyObiekt("ksiazka"))}); 
+		}
+		ObjectPlusPlus.pokazEkstensje(biblioteka.Ksiazka.class);
 		
 		JSeparator separator = new JSeparator();
 		contentPane.add(separator, "cell 0 1,growx");

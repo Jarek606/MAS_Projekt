@@ -26,6 +26,7 @@ import javax.swing.DefaultComboBoxModel;
 
 import objectplus.ObjectPlus;
 import biblioteka.Wydawnictwo;
+import java.awt.Color;
 
 public class AddBook extends JFrame {
 
@@ -103,9 +104,6 @@ public class AddBook extends JFrame {
 			for(Object o: ObjectPlus.obiektyEkstensji(biblioteka.Wydawnictwo.class)){
 				cbPublisher.addItem(o);; 
 			}
-			for(Object o: ObjectPlus.obiektyEkstensji(biblioteka.OsobaPrywatna.class)){
-				cbPublisher.addItem(o);; 
-			}
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -122,7 +120,25 @@ public class AddBook extends JFrame {
 		btnDodaj = new JButton("Dodaj");
 		btnDodaj.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				boolean error = false;
+				if (txtTitle.getText().isEmpty()){
+					txtTitle.setBackground(Color.RED);
+					error = true;
+				}
+				if (txtAuthor.getText().isEmpty()){
+					txtTitle.setBackground(Color.RED);
+					error = true;
+				}
+				if (txtIsbn.getText().isEmpty()){
+					txtTitle.setBackground(Color.RED);
+					error = true;
+				}
+				if (!error){
+					biblioteka.Ksiazka k = new biblioteka.Ksiazka(txtTitle.getText(), txtAuthor.getText(), Integer.parseInt(txtIsbn.getText()));
+					k.dodajPowiazanie("ksiazka", "wydawnictwo", (Wydawnictwo)cbPublisher.getSelectedItem());
+					System.out.println("Dodano:" + k);
+					dispose();
+				}
 			}
 		});
 		panel.add(btnDodaj);

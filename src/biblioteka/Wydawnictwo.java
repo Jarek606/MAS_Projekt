@@ -1,5 +1,7 @@
 package biblioteka;
 
+import objectplus.ObjectPlusPlus;
+
 public class Wydawnictwo extends Wydawca {
 	private String nazwa;
 	private String adres;
@@ -24,7 +26,7 @@ public class Wydawnictwo extends Wydawca {
 	
 	
 	public String toString(){
-		return "Wydawnictwo: " + getNazwa();
+		return getNazwa();
 	}
 	
 }
