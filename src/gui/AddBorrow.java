@@ -1,9 +1,11 @@
 package gui;
 
 import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
@@ -34,6 +36,7 @@ import java.awt.event.ActionEvent;
 public class AddBorrow extends JFrame {
 
 	private JPanel contentPane;
+	private Component frame = null;
 
 	/**
 	 * Launch the application.
@@ -93,6 +96,13 @@ public class AddBorrow extends JFrame {
 					cbBook.addItem(((biblioteka.Egzemplarz) o).dajPowiazanyObiekt("ksiazka"));
 				}
 			}
+	
+			if(cbBook.getItemCount() == 0){
+				JOptionPane.showMessageDialog(frame,
+					    "Brak ksi¹¿ek do wypo¿yczenia.",
+					    "B³¹d!",
+					    JOptionPane.WARNING_MESSAGE);
+			}
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -118,14 +128,22 @@ public class AddBorrow extends JFrame {
 		btnDodaj.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				System.out.println("Click dodaj wypo¿yczenie");
-				Osoba o = (Osoba)cbClient.getSelectedItem();
-				Ksiazka k = (Ksiazka)cbBook.getSelectedItem();
-				Egzemplarz e = (Egzemplarz)k.dajDostepnyEgzemplarz();
-				Wypozyczenie w = new Wypozyczenie();
-				e.setStatus(statusEgzemplarza.wypozyczony);
-				e.dodajPowiazanie("wypozyczenie", "egzemplarz", w);
-				o.dodajPowiazanie("osoba", "wypozyczenie", w);
-				
+				if (cbBook.getItemCount() > 0){
+					Osoba o = (Osoba)cbClient.getSelectedItem();
+					Ksiazka k = (Ksiazka)cbBook.getSelectedItem();
+					Egzemplarz e = (Egzemplarz)k.dajDostepnyEgzemplarz();
+					Wypozyczenie w = new Wypozyczenie();
+					e.setStatus(statusEgzemplarza.wypozyczony);
+					e.dodajPowiazanie("wypozyczenie", "egzemplarz", w);
+					o.dodajPowiazanie("wypozyczenie", "osoba", w);
+					dispose();
+				} else {
+					JOptionPane.showMessageDialog(frame,
+						    "Brak ksi¹¿ek do wypo¿yczenia.",
+						    "B³¹d!",
+						    JOptionPane.WARNING_MESSAGE);
+					dispose();
+				}
 			}
 		});
 	}

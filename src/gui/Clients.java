@@ -9,11 +9,21 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+
 import net.miginfocom.swing.MigLayout;
+
 import javax.swing.JScrollPane;
 import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+
+import biblioteka.Osoba;
+import biblioteka.Wypozyczenie;
+import objectplus.ObjectPlus;
+import objectplus.ObjectPlusPlus;
+
 import java.awt.Font;
 
 /**
@@ -78,6 +88,17 @@ public class Clients extends JFrame {
 		});
 		scrollPane.setViewportView(table);
 		
+		DefaultTableModel model = (DefaultTableModel) table.getModel();
+
+		try {
+			for(Object o: ObjectPlus.obiektyEkstensji(biblioteka.Osoba.class)){
+				model.addRow(new Object[]{((biblioteka.Osoba) o), ((biblioteka.Osoba) o).getPesel()}); 
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+				
 		JLabel lblWypoyczoneKsiki = new JLabel("Wypo\u017Cyczone ksi\u0105\u017Cki:");
 		lblWypoyczoneKsiki.setFont(new Font("Tahoma", Font.BOLD, 11));
 		contentPane.add(lblWypoyczoneKsiki, "cell 0 2");
@@ -101,6 +122,35 @@ public class Clients extends JFrame {
 			}
 		});
 		scrollPane_1.setViewportView(table_1);
+		
+		DefaultTableModel model2 = (DefaultTableModel) table_1.getModel();
+		
+		table.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+
+			@Override
+			public void valueChanged(ListSelectionEvent e) {
+				for (int i = model2.getRowCount() - 1; i >= 0; i--) {
+				    model2.removeRow(i);
+				}
+				Osoba os = (Osoba) model.getValueAt(table.getSelectedRow() ,0);
+				ObjectPlusPlus[] wypozyczenia = null;
+				try {
+					wypozyczenia = os.dajPowiazania("wypozyczenie");
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					//e1.printStackTrace();
+				}
+				for(Object o : wypozyczenia){
+					try {
+						model2.addRow(new Object[]{((Wypozyczenie) o).dajPowiazanyObiekt("egzemplarz").dajPowiazanyObiekt("ksiazka"), ((Wypozyczenie) o).getDataWypozyczenia(), ((Wypozyczenie) o).getRzeczywistaDataZwrotu()});
+					} catch (Exception e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} 
+				}
+			
+			}
+		});
 	}
 
 }

@@ -15,11 +15,13 @@ import java.awt.FlowLayout;
 import javax.swing.JButton;
 import javax.swing.BoxLayout;
 
+import enums.statusEgzemplarza;
 import biblioteka.Klient;
 import biblioteka.Ksiazka;
 import biblioteka.Osoba;
 import biblioteka.OsobaPrywatna;
 import biblioteka.Wydawnictwo;
+import biblioteka.Wypozyczenie;
 import objectplus.ObjectPlus;
 import net.miginfocom.swing.MigLayout;
 
@@ -33,6 +35,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  * @author Jaroslaw Dawidowicz
@@ -65,13 +69,31 @@ public class main extends JFrame {
 				}
 				
 				/*Wydawnictwo wyd = new Wydawnictwo("WQR", "ul. Koralowa 10, 25-500 Warszawa");
-				wyd = new Wydawnictwo("IBN", "Aleje Jerozolimiskie 123, 77-544 Warszawa");
 				Osoba k = new Osoba("Jan", "Kowalski", 580731254, 123);
-				k = new Osoba("Tadeusz", "Brzeszyk", 12485785, 153);
 				Ksiazka ks = new Ksiazka("Smoki w przestworzach", "Jan Nowak", 123);
 				biblioteka.Egzemplarz egz = new biblioteka.Egzemplarz();
+				Wypozyczenie w = new Wypozyczenie();
 				ks.dodajPowiazanie("wydawnictwo", "ksiazka", wyd);
-				ks.dodajPowiazanie("egzemplarz", "ksiazka", egz);*/
+				ks.dodajPowiazanie("egzemplarz", "ksiazka", egz);
+				egz.setStatus(statusEgzemplarza.wypozyczony);
+				egz.dodajPowiazanie("wypozyczenie", "egzemplarz", w);
+				k.dodajPowiazanie("wypozyczenie", "osoba", w);
+				
+				wyd = new Wydawnictwo("IBN", "Aleje Jerozolimiskie 123, 77-544 Warszawa");
+				egz = new biblioteka.Egzemplarz();
+				ks = new Ksiazka("Detektyw Y", "Tomasz Kolwaski", 548);
+				k = new Osoba("Tadeusz", "Brzeszyk", 12485785, 153);
+				w = new Wypozyczenie();
+				ks.dodajPowiazanie("wydawnictwo", "ksiazka", wyd);
+				ks.dodajPowiazanie("egzemplarz", "ksiazka", egz);
+				egz.setStatus(statusEgzemplarza.wypozyczony);
+				egz.dodajPowiazanie("wypozyczenie", "egzemplarz", w);
+				k.dodajPowiazanie("wypozyczenie", "osoba", w);
+				Calendar c = Calendar.getInstance(); 
+				Date dataWypozyczenia = new Date();
+				c.setTime(dataWypozyczenia); 
+				c.add(Calendar.DATE, 14);
+				w.setRzeczywistaDataZwrotu(c.getTime());*/
 				
 				try {
 					main frame = new main();
@@ -113,6 +135,8 @@ public class main extends JFrame {
 		JButton btnClient = new JButton("Klient");
 		btnClient.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Clients klienci = new Clients();
+				klienci.setVisible(true);
 				System.out.println("click klient");
 				
 			}

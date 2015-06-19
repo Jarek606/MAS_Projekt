@@ -1,6 +1,7 @@
 package gui;
 
 import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -15,6 +16,7 @@ import javax.swing.JTextField;
 import java.awt.Font;
 
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 import javax.swing.JSeparator;
 import javax.swing.JButton;
 
@@ -26,6 +28,7 @@ import javax.swing.DefaultComboBoxModel;
 
 import objectplus.ObjectPlus;
 import biblioteka.Wydawnictwo;
+
 import java.awt.Color;
 
 public class AddBook extends JFrame {
@@ -42,6 +45,7 @@ public class AddBook extends JFrame {
 	private JButton btnDodaj;
 	private JButton btnAnuluj;
 	private JPanel panel;
+	private Component frame;
 
 	/**
 	 * Launch the application.
@@ -123,14 +127,26 @@ public class AddBook extends JFrame {
 				boolean error = false;
 				if (txtTitle.getText().isEmpty()){
 					txtTitle.setBackground(Color.RED);
+					JOptionPane.showMessageDialog(frame,
+						    "Nie wprowadzono tytu³u",
+						    "B³¹d!",
+						    JOptionPane.WARNING_MESSAGE);
 					error = true;
 				}
 				if (txtAuthor.getText().isEmpty()){
-					txtTitle.setBackground(Color.RED);
+					txtAuthor.setBackground(Color.RED);
+					JOptionPane.showMessageDialog(frame,
+						    "Nie wprowadzono autora",
+						    "B³¹d!",
+						    JOptionPane.WARNING_MESSAGE);
 					error = true;
 				}
 				if (txtIsbn.getText().isEmpty()){
-					txtTitle.setBackground(Color.RED);
+					JOptionPane.showMessageDialog(frame,
+						    "Nie wprowadzono nr ISBN",
+						    "B³¹d!",
+						    JOptionPane.WARNING_MESSAGE);
+					txtIsbn.setBackground(Color.RED);
 					error = true;
 				}
 				if (!error){
