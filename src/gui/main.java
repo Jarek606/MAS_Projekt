@@ -86,7 +86,6 @@ public class main extends JFrame {
 				w = new Wypozyczenie();
 				ks.dodajPowiazanie("wydawnictwo", "ksiazka", wyd);
 				ks.dodajPowiazanie("egzemplarz", "ksiazka", egz);
-				egz.setStatus(statusEgzemplarza.wypozyczony);
 				egz.dodajPowiazanie("wypozyczenie", "egzemplarz", w);
 				k.dodajPowiazanie("wypozyczenie", "osoba", w);
 				Calendar c = Calendar.getInstance(); 
