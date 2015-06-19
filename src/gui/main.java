@@ -67,8 +67,11 @@ public class main extends JFrame {
 				/*Wydawnictwo wyd = new Wydawnictwo("WQR", "ul. Koralowa 10, 25-500 Warszawa");
 				wyd = new Wydawnictwo("IBN", "Aleje Jerozolimiskie 123, 77-544 Warszawa");
 				Osoba k = new Osoba("Jan", "Kowalski", 580731254, 123);
+				k = new Osoba("Tadeusz", "Brzeszyk", 12485785, 153);
 				Ksiazka ks = new Ksiazka("Smoki w przestworzach", "Jan Nowak", 123);
-				ks.dodajPowiazanie("ksiazka", "wydawnictwo", wyd);*/
+				biblioteka.Egzemplarz egz = new biblioteka.Egzemplarz();
+				ks.dodajPowiazanie("wydawnictwo", "ksiazka", wyd);
+				ks.dodajPowiazanie("egzemplarz", "ksiazka", egz);*/
 				
 				try {
 					main frame = new main();

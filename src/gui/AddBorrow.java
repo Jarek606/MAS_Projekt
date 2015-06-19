@@ -20,6 +20,12 @@ import java.awt.FlowLayout;
 
 import javax.swing.JButton;
 
+import biblioteka.Egzemplarz;
+import biblioteka.Ksiazka;
+import biblioteka.Osoba;
+import biblioteka.Wydawnictwo;
+import biblioteka.Wypozyczenie;
+import enums.statusEgzemplarza;
 import objectplus.ObjectPlus;
 
 import java.awt.event.ActionListener;
@@ -82,8 +88,10 @@ public class AddBorrow extends JFrame {
 		JComboBox cbBook = new JComboBox();
 		contentPane.add(cbBook, "cell 1 2,growx");
 		try {
-			for(Object o: ObjectPlus.obiektyEkstensji(biblioteka.Ksiazka.class)){
-				cbBook.addItem(o);; 
+			for(Object o: ObjectPlus.obiektyEkstensji(biblioteka.Egzemplarz.class)){
+				if (((biblioteka.Egzemplarz) o).getStatus() == statusEgzemplarza.dostepny){
+					cbBook.addItem(((biblioteka.Egzemplarz) o).dajPowiazanyObiekt("ksiazka"));
+				}
 			}
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block
@@ -110,6 +118,14 @@ public class AddBorrow extends JFrame {
 		btnDodaj.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				System.out.println("Click dodaj wypo¿yczenie");
+				Osoba o = (Osoba)cbClient.getSelectedItem();
+				Ksiazka k = (Ksiazka)cbBook.getSelectedItem();
+				Egzemplarz e = (Egzemplarz)k.dajDostepnyEgzemplarz();
+				Wypozyczenie w = new Wypozyczenie();
+				e.setStatus(statusEgzemplarza.wypozyczony);
+				e.dodajPowiazanie("wypozyczenie", "egzemplarz", w);
+				o.dodajPowiazanie("osoba", "wypozyczenie", w);
+				
 			}
 		});
 	}

@@ -1,5 +1,10 @@
 package biblioteka;
 
+import java.util.Collection;
+import java.util.HashMap;
+
+import enums.statusEgzemplarza;
+import objectplus.ObjectPlus;
 import objectplus.ObjectPlusPlus;
 
 public class Ksiazka extends ObjectPlusPlus {
@@ -38,6 +43,28 @@ public class Ksiazka extends ObjectPlusPlus {
 	}
 	public static void setOplataZaPrzetrzymanie(double oplataZaPrzetrzymanie) {
 		Ksiazka.oplataZaPrzetrzymanie = oplataZaPrzetrzymanie;
+	}
+	
+	public Egzemplarz dajDostepnyEgzemplarz(){
+		ObjectPlusPlus[] powiazaniaObiektu = null;
+		try {
+			powiazaniaObiektu = this.dajPowiazania("egzemplarz");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		for(Object o: powiazaniaObiektu){
+			if (((biblioteka.Egzemplarz) o).getStatus() == statusEgzemplarza.dostepny){
+				return ((biblioteka.Egzemplarz) o);
+			}
+		}
+		try {
+			throw new Exception("Brak egzemplarza: " + this);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
 	public String toString() {

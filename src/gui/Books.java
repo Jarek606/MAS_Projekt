@@ -86,7 +86,7 @@ public class Books extends JFrame {
 		DefaultTableModel model = (DefaultTableModel) table.getModel();
 
 		for(Object o: ObjectPlus.obiektyEkstensji(biblioteka.Ksiazka.class)){
-			model.addRow(new Object[]{((biblioteka.Ksiazka) o).getAutor(), ((biblioteka.Ksiazka) o), (biblioteka.Wydawnictwo)(((biblioteka.Ksiazka) o).dajPowiazanyObiekt("ksiazka"))}); 
+			model.addRow(new Object[]{((biblioteka.Ksiazka) o).getAutor(), ((biblioteka.Ksiazka) o), (biblioteka.Wydawnictwo)(((biblioteka.Ksiazka) o).dajPowiazanyObiekt("wydawnictwo"))}); 
 		}
 		ObjectPlusPlus.pokazEkstensje(biblioteka.Ksiazka.class);
 		

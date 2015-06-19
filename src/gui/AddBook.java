@@ -135,7 +135,9 @@ public class AddBook extends JFrame {
 				}
 				if (!error){
 					biblioteka.Ksiazka k = new biblioteka.Ksiazka(txtTitle.getText(), txtAuthor.getText(), Integer.parseInt(txtIsbn.getText()));
-					k.dodajPowiazanie("ksiazka", "wydawnictwo", (Wydawnictwo)cbPublisher.getSelectedItem());
+					biblioteka.Egzemplarz egz = new biblioteka.Egzemplarz();
+					k.dodajPowiazanie("wydawnictwo", "ksiazka", (Wydawnictwo)cbPublisher.getSelectedItem());
+					k.dodajPowiazanie("egzemplarz", "ksiazka", egz);
 					System.out.println("Dodano:" + k);
 					dispose();
 				}

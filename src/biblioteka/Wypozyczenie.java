@@ -1,4 +1,6 @@
 package biblioteka;
+import java.time.LocalDate;
+import java.util.Calendar;
 import java.util.Date;
 
 import objectplus.ObjectPlusPlus;
@@ -6,10 +8,17 @@ import objectplus.ObjectPlusPlus;
 
 public class Wypozyczenie extends ObjectPlusPlus{
 	
-	private Date dataWypozyczenia;
+	private Date dataWypozyczenia = new Date();
 	private Date planowanaDataZwrotu;
-	private Date rzeczywistaDataZwrotu;
-	private double oplataZaPrzetrzymanie;
+	private Date rzeczywistaDataZwrotu = null;
+	private double oplataZaPrzetrzymanie = 0.0;
+	
+	public Wypozyczenie(){
+		Calendar c = Calendar.getInstance(); 
+		c.setTime(dataWypozyczenia); 
+		c.add(Calendar.DATE, 14);
+		planowanaDataZwrotu = c.getTime();
+	}
 	
 	public Date getDataWypozyczenia() {
 		return dataWypozyczenia;
