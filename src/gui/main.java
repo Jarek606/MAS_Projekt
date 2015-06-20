@@ -110,7 +110,7 @@ public class main extends JFrame {
 	public main() {
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setTitle("System biblioteczny");
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 450, 88);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);

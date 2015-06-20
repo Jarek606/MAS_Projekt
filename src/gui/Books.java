@@ -98,9 +98,18 @@ public class Books extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				AddBook dodajKsiazki = new AddBook();
 				dodajKsiazki.setVisible(true);
+				dispose();
 			}
 		});
-		contentPane.add(btnAdd, "cell 0 2,alignx center,aligny center");
+		contentPane.add(btnAdd, "flowx,cell 0 2,alignx right,aligny center");
+		
+		JButton btnZamknij = new JButton("Zamknij");
+		btnZamknij.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				dispose();
+			}
+		});
+		contentPane.add(btnZamknij, "cell 0 2");
 	}
 
 }

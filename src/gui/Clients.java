@@ -129,6 +129,7 @@ public class Clients extends JFrame {
 
 			@Override
 			public void valueChanged(ListSelectionEvent e) {
+				
 				for (int i = model2.getRowCount() - 1; i >= 0; i--) {
 				    model2.removeRow(i);
 				}

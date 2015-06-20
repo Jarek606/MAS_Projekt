@@ -45,6 +45,10 @@ public class Ksiazka extends ObjectPlusPlus {
 		Ksiazka.oplataZaPrzetrzymanie = oplataZaPrzetrzymanie;
 	}
 	
+	/**
+	 * @author Jaros³aw Dawidowicz
+	 * @return Egzemplarz
+	 */
 	public Egzemplarz dajDostepnyEgzemplarz(){
 		ObjectPlusPlus[] powiazaniaObiektu = null;
 		try {
