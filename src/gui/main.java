@@ -39,7 +39,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 /**
- * @author Jaroslaw Dawidowicza
+ * @author Jaroslaw Dawidowicz
  *
  */
 public class main extends JFrame {
@@ -48,7 +48,7 @@ public class main extends JFrame {
 	final static String extension = "extension_gui.bin";
 
 	/**
-	 * Launch the application.
+	 * Launch the application. s
 	 */
 	public static void main(String[] args) {
 		
