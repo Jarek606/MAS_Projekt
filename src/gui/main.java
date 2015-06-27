@@ -48,7 +48,7 @@ public class main extends JFrame {
 	final static String extension = "extension_gui.bin";
 
 	/**
-	 * Launch the application. s
+	 * Launch the application.
 	 */
 	public static void main(String[] args) {
 		
