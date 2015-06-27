@@ -39,7 +39,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 /**
- * @author Jaroslaw Dawidowicz
+ * @author Jaroslaw Dawidowiczd
  *
  */
 public class main extends JFrame {
